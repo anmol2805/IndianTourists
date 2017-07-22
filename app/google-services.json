@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "144316916001",
+    "firebase_url": "https://indiantourists-2862b.firebaseio.com",
+    "project_id": "indiantourists-2862b",
+    "storage_bucket": "indiantourists-2862b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144316916001:android:4b8d3c842a1c4ec7",
+        "android_client_info": {
+          "package_name": "com.anmol.indiantourists"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "144316916001-1ut1slh36q77b8d7i2nct0kbvq6h0ano.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBAz2LBo4Z_GSTJdm88xcPqc9iOYSSKMSo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
