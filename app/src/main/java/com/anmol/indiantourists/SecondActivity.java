@@ -48,7 +48,7 @@ public class SecondActivity extends AppCompatActivity {
         place = (ListView)findViewById(R.id.list);
         addplace = (Button)findViewById(R.id.addplace); 
         placelist = new ArrayList<String>();
-        placeadapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,placelist);
+        placeadapter = new ArrayAdapter<String>(this,R.layout.list_item,placelist);
         place.setAdapter(placeadapter);
         addplace.setOnClickListener(new View.OnClickListener() {
             @Override

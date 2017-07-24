@@ -52,7 +52,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     double log;
     String olat;
     String olog;
-    int time = 1000*60*1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +83,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         if (locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)) {
             Toast.makeText(this, "Please wait while your Network Provider is finding Directions", Toast.LENGTH_LONG).show();
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, time, 100, new LocationListener() {
+            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, new LocationListener() {
                 @Override
                 public void onLocationChanged(Location location) {
                     lat = location.getLatitude();
@@ -124,7 +123,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             });
         } else if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
             Toast.makeText(this, "Please Enable Your Network Connection", Toast.LENGTH_LONG).show();
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, time, 0, new LocationListener() {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, new LocationListener() {
 
                 @Override
                 public void onLocationChanged(Location location) {
@@ -133,7 +132,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     olat = String.valueOf(lat);
                     olog = String.valueOf(log);
                     //Toast.makeText(MapsActivity.this,olat + "," + olog,Toast.LENGTH_LONG).show();
-                    //sendRequest(olat + "," + olog, dlat + "," + dlong);
+                    sendRequest(olat + "," + olog, dlat + "," + dlong);
                     LatLng latLng = new LatLng(lat, log);
                     Geocoder geocoder = new Geocoder(getApplicationContext());
                     try {

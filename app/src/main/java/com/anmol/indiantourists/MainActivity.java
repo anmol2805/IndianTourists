@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         list = (ListView)findViewById(R.id.list);
         addcity = (Button)findViewById(R.id.addcity);
         citylist = new ArrayList<String>();
-        cityadapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,citylist);
+        cityadapter = new ArrayAdapter<String>(this,R.layout.list_item,citylist);
         list.setAdapter(cityadapter);
         databaseReference = FirebaseDatabase.getInstance().getReference().getRoot();
         addcity.setOnClickListener(new View.OnClickListener() {
