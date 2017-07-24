@@ -15,6 +15,8 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AlertDialog;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,6 +51,8 @@ public class FirstActivity extends FragmentActivity implements OnMapReadyCallbac
     String place;
     String city;
     DatabaseReference addreference;
+    Button edit;
+    String addname,number,des,website;
     /*private static final int PERMISSION_CALLBACK_CONSTANT = 100;
     private static final int REQUEST_PERMISSION_SETTING = 101;
     String[] permissionsRequired = new String[]{
@@ -68,10 +72,28 @@ public class FirstActivity extends FragmentActivity implements OnMapReadyCallbac
         num = (TextView)findViewById(R.id.num);
         web = (TextView)findViewById(R.id.web);
         text = (TextView)findViewById(R.id.text);
+        edit = (Button)findViewById(R.id.editdetails);
         place = getIntent().getExtras().getString("place");
         name.setText(place);
         city = getIntent().getExtras().getString("city");
         setTitle(city);
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String s = city;
+                String s1 = place;
+                Bundle b = new Bundle();
+                b.putString("city",s);
+                b.putString("place",s1);
+                b.putString("address",addname);
+                b.putString("contact",number);
+                b.putString("website",website);
+                b.putString("descript",des);
+                Intent intent = new Intent(FirstActivity.this,EditActivity.class);
+                intent.putExtras(b);
+                startActivity(intent);
+            }
+        });
         addreference = FirebaseDatabase.getInstance().getReference().getRoot().child(city).child(place);
 
         addreference.addValueEventListener(new ValueEventListener() {
@@ -79,13 +101,18 @@ public class FirstActivity extends FragmentActivity implements OnMapReadyCallbac
             public void onDataChange(DataSnapshot dataSnapshot) {
                 GenericTypeIndicator<Map<String, String>> genericTypeIndicator = new GenericTypeIndicator<Map<String, String>>() {};
                 Map<String,String> map = dataSnapshot.getValue(genericTypeIndicator);
-                String addname = map.get("Address");
+                addname = map.get("Address");
                 add.setText(addname);
-                String number = map.get("Contact No");
-                num.setText(number);
-                String website = map.get("Website");
+                number = map.get("Contact No");
+                StringBuilder sb = new StringBuilder(number);
+                if(sb.charAt(0)== '0'){
+                    sb.deleteCharAt(0);
+                    number = sb.toString();
+                }
+                num.setText("+91" + number);
+                website = map.get("Website");
                 web.setText(website);
-                String des = map.get("About");
+                des = map.get("About");
                 text.setText(des);
 
 

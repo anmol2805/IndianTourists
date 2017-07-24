@@ -112,6 +112,13 @@ public class SecondActivity extends AppCompatActivity {
                         Map<String,Object> map = new HashMap<String, Object>();
                         map.put(placename,"");
                         placedatabase.updateChildren(map);
+                        DatabaseReference mref = FirebaseDatabase.getInstance().getReference().getRoot().child(city).child(placename);
+                        Map<String,Object> map1 = new HashMap<String, Object>();
+                        map1.put("Address","Add Address");
+                        map1.put("Contact No","Add phone");
+                        map1.put("Website","Add Website");
+                        map1.put("About"," Add Description");
+                        mref.updateChildren(map1);
                     }
                 }
 

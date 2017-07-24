@@ -26,5 +26,8 @@
         android:text="Add city"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:textStyle="bold"
+        android:textColor="#fff"
+        android:background="@drawable/round_button"
         />
 </RelativeLayout>
