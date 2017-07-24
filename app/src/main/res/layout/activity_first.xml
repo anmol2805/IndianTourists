@@ -38,7 +38,11 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:text=""
-                android:textSize="25sp" />
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+
+                />
 
             <TextView
                 android:id="@+id/add"
@@ -48,7 +52,12 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:text=""
-                android:textSize="20sp" />
+                android:textSize="25sp"
+                android:textColor="#000"
+                android:textAlignment="center"
+                android:drawableLeft="@drawable/address"
+
+                />
 
             <TextView
                 android:id="@+id/num"
@@ -59,7 +68,12 @@
                 android:layout_marginTop="10dp"
                 android:text=""
                 android:autoLink="phone"
-                android:textSize="20sp" />
+                android:textSize="25sp"
+                android:textAlignment="center"
+                android:textColor="#FF1DD251"
+                android:textColorLink="#FF1DD251"
+                android:drawableLeft="@drawable/call"
+                />
 
             <TextView
                 android:id="@+id/web"
@@ -70,7 +84,11 @@
                 android:layout_marginTop="10dp"
                 android:text=""
                 android:autoLink="web"
-                android:textSize="20sp" />
+                android:textSize="25sp"
+                android:textAlignment="center"
+                android:drawableLeft="@drawable/web"
+
+                />
 
             <TextView
                 android:id="@+id/text"
@@ -80,7 +98,12 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:text=""
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textStyle="italic"
+                android:textColor="@color/colorPrimary"
+                android:drawableLeft="@drawable/about"
+                />
 
             <Button
                 android:id="@+id/editdetails"

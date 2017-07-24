@@ -60,6 +60,7 @@ public class EditActivity extends AppCompatActivity {
                     map.put("About",description);
                     aref.updateChildren(map);
                     finish();
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
                 }
                 else {
                     Toast.makeText(EditActivity.this,"Please fill out all the details",Toast.LENGTH_SHORT).show();
@@ -69,5 +70,11 @@ public class EditActivity extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_down);
     }
 }

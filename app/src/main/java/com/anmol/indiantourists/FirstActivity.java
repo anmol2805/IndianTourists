@@ -92,6 +92,7 @@ public class FirstActivity extends FragmentActivity implements OnMapReadyCallbac
                 Intent intent = new Intent(FirstActivity.this,EditActivity.class);
                 intent.putExtras(b);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
         addreference = FirebaseDatabase.getInstance().getReference().getRoot().child(city).child(place);
@@ -256,6 +257,7 @@ public class FirstActivity extends FragmentActivity implements OnMapReadyCallbac
                 Intent i = new Intent(getApplicationContext(),MapsActivity.class);
                 i.putExtras(b);
                 startActivity(i);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
     }
@@ -329,5 +331,12 @@ public class FirstActivity extends FragmentActivity implements OnMapReadyCallbac
             }
         }
     }*/
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+        overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_down);
+    }
 }
 

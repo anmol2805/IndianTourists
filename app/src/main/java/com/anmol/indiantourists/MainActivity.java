@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference databaseReference;
     Button addcity;
     String cityname;
-
+    private static long back_pressed;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,6 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(MainActivity.this,SecondActivity.class);
                 intent.putExtras(b);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left,R.anim.slide_out_right);
             }
         });
 
@@ -164,6 +165,21 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == 10){
             permissionRecord = grantResults[0] = PackageManager.PERMISSION_GRANTED;
             int length = grantResults.length;
+        }
+    }
+    @Override
+    public void onBackPressed() {
+        if (back_pressed + 2000 > System.currentTimeMillis()){
+
+            super.onBackPressed();
+            finish();
+            overridePendingTransition(R.anim.slide_in_up,R.anim.slide_out_down);
+        }
+        else {
+            Toast.makeText(getBaseContext(), "Press once again to exit!", Toast.LENGTH_SHORT).show();
+            back_pressed = System.currentTimeMillis();
+            //FragmentManager fm = getFragmentManager();
+            //fm.beginTransaction().replace(R.id.content, new main()).commit();
         }
     }
 
